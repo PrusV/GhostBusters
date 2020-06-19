@@ -6,14 +6,22 @@ body {
   font-weight: 400;
   color: #363636;
 }
-
+.no-scroll {
+  overflow: hidden;
+}
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   height: 104px;
   padding-left: 34px;
   border-bottom: 1px solid #d4d4d4;
+}
+.m-menu {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .line {
@@ -139,6 +147,7 @@ body {
   padding-bottom: 25px;
   padding-top: 25px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* .trailer-button-icon,
@@ -253,9 +262,17 @@ body {
   font-weight: 900;
 }
 .tabs-content {
-  display: flex;
+  display: none;
   align-items: center;
   flex-wrap: wrap;
+  visibility: hidden;
+}
+.tabs-content.visible {
+  display: flex;
+  visibility: visible;
+}
+.tab {
+  cursor: pointer;
 }
 .card {
   display: flex;
@@ -311,6 +328,16 @@ body {
   line-height: 16px;
   color: #000;
   margin-top: 14px;
+}
+.button-next {
+  display: none;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 99;
 }
 @media (max-width: 1200px) {
   .container {
@@ -403,6 +430,58 @@ body {
   .header {
     height: 80px;
   }
+  .m-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 68px;
+    bottom: 0;
+    height: calc(100% - 68px);
+    background: #5671f6;
+  }
+  .m-menu.active {
+    display: flex;
+  }
+  .news-card {
+    max-width: 90%;
+  }
+  .button-group {
+    height: auto;
+    flex-direction: column;
+  }
+  .search-input {
+    margin: 0;
+    width: 260px;
+    height: 50px;
+    border: none;
+    background-image: none;
+    border-radius: 5px;
+  }
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+  .navigation-link {
+    color: #fff;
+    margin-right: 0;
+    margin-bottom: 18px;
+  }
+  .navigation-link:last-child {
+    margin-bottom: 0;
+  }
+  .sign-up {
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    margin-bottom: 30px;
+  }
   .container {
     max-width: 560px;
   }
@@ -428,17 +507,21 @@ body {
   .line {
     display: none;
   }
-  .button-group {
+  /* .button-group {
     display: none;
-  }
-  .search-input {
+  } */
+  /* .search-input {
     display: none;
-  }
+  } */
   .header {
     padding-left: 2.5%;
     padding-right: 2.5%;
   }
   .mobile-buttons {
+    display: block;
+    margin-left: auto;
+  }
+  .button-next {
     display: block;
   }
 }
