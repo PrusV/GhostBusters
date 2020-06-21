@@ -434,7 +434,7 @@ body {
     display: none;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     position: fixed;
     left: 0;
     right: 0;
